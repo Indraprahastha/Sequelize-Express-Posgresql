@@ -1,0 +1,49 @@
+<html>
+  <%- include partial/head %>
+  <body>
+    <%- include partial/menu %>
+<!--Menu ======================================================================== Diatas-->
+<div style="text-align:center;margin-top:50px"class="container">
+  <h1><%=subject[0].subject_name%></h1><br>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th style="text-align:center">ID Siswa</th>
+        <th style="text-align:center">Student Name</th>
+        <th style="text-align:center">Score</th>
+      </tr>
+    </thead>
+    <tbody>
+<!--====================================================================================-->
+        <%dataSubjects.forEach((dataSubjects)=>{%>
+          <tr> <!--ini harus didalam forEachnya-->
+            <td><%=dataSubjects.id%></td>
+            <td><%=`${dataSubjects.first_name} ${dataSubjects.last_name}`%></td>
+            <%if(dataSubjects.Studentsubject.score > 1){%>
+              <td><%=dataSubjects.Studentsubject.score%></td>
+            <%}else{%>
+              <td><a href="/subject/<%= dataSubjects.id %>/<%= subject[0].id %>/givescore">Give Score</a></td>
+            <%}%>
+            <%if(dataSubjects.Studentsubject.score > 1){%>
+              <td><%= helper(dataSubjects.Studentsubject.score) %></td>
+            <%}else{%>
+              <td>Empty</td>
+            <%}%>
+          </tr>
+        <%})%>
+
+    </tbody>
+  </table>
+</div>
+
+<div style="text-align:center;margin-top:50px"class="container">
+  <!-- <form class="form-horizontal" action="/contacts" method="post">
+    <input type="text" name="name" class="form-control" placeholder="Nama"><br>
+    <input type="text" name="company" class="form-control" placeholder="Company"><br>
+    <input type="text" name="telp_number" class="form-control" placeholder="No Telepon"><br>
+    <input type="text" name="email" class="form-control" placeholder="Email">
+    <br><button type="submit" name="submit">SIMPAN</button>
+  </form> -->
+</div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<html>
+  <%- include partial/head %>
+  <body>
+    <%- include partial/menu %>
+<!--Menu ======================================================================== Diatas-->
+<div style="text-align:center;margin-top:50px"class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th style="text-align:center">id</th>
+        <th style="text-align:center">First Name</th>
+        <th style="text-align:center">Last Name</th>
+        <th style="text-align:center">Email</th>
+      </tr>
+    </thead>
+    <tbody>
+
+        <%dataStudent.forEach((dataStudent)=>{%>
+          <tr> <!--ini harus didalam forEachnya-->
+          <td><%=dataStudent.id%></td>
+          <td><%=dataStudent.first_name%></td>
+          <td><%=dataStudent.last_name%></td>
+          <td><%=dataStudent.email%></td>
+          <td><a href="/student/addsubject/<%= dataStudent.id %>">Add Subject</a></td>
+          <td><a href="/student/edit/<%= dataStudent.id %>">Edit</a></td>
+          <td><a onclick="myFunction()" class="paman"href="/student/delete/<%= dataStudent.id %>">Delete</a></td>
+          <p id="demo"></p>
+            <script>
+              function myFunction() {
+                document.getElementById("demo").innerHTML = alert("Anda akan menghapus data ini");;
+              }
+            </script>
+
+          </tr>
+        <%})%>
+
+    </tbody>
+  </table>
+</div>
+<div style="text-align:center;margin-top:50px"class="container">
+  <!-- <form class="form-horizontal" action="/contacts" method="post">
+    <input type="text" name="name" class="form-control" placeholder="Nama"><br>
+    <input type="text" name="company" class="form-control" placeholder="Company"><br>
+    <input type="text" name="telp_number" class="form-control" placeholder="No Telepon"><br>
+    <input type="text" name="email" class="form-control" placeholder="Email">
+    <br><button type="submit" name="submit">SIMPAN</button>
+  </form> -->
+</div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<html>
+  <%- include partial/head %>
+  <body>
+    <%- include partial/menu %>
+<!--Menu ======================================================================== Diatas-->
+
+<div style="margin-top:100px"class="container">
+  <table class="table table-striped">
+    <tbody>
+      <tr>
+        <th>First Name</th>
+        <td><%= dataStudent.first_name %></td>
+      </tr>
+      <tr>
+        <th>Last Name</th>
+        <td><%= dataStudent.last_name %></td>
+      </tr>
+      <tr>
+        <th>Email</th>
+        <td><%= dataStudent.email %></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <br><br>
+  <form class="form-horizontal" action="/student/addsubject/<%= dataStudent.id %>" method="post">
+    <h4 style="text-align:left">Pilihan Subjek</h4>
+    <select class="form-control" name="subject_id">
+      <%dataSubject.forEach((dataSubject)=>{%>
+          <option value="<%=dataSubject.id%>"><%= dataSubject.subject_name %></option>
+      <%})%>
+    </select>
+    <br>
+    <button type="submit" name="submit">SIMPAN</button>
+  </form>
+
+
+</div>
+
+</body>
+</html>

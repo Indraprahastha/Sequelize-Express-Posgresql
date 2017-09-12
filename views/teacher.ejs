@@ -1,0 +1,49 @@
+<html>
+  <%- include partial/head %>
+  <body>
+    <%- include partial/menu %>
+<!--Menu ======================================================================== Diatas-->
+<div style="text-align:center;margin-top:50px"class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th style="text-align:center">id</th>
+        <th style="text-align:center">First Name</th>
+        <th style="text-align:center">Last Name</th>
+        <th style="text-align:center">Email</th>
+        <th style="text-align:center">ID Subject</th>
+      </tr>
+    </thead>
+    <tbody>
+
+        <%dataTeachers.forEach((dataTeachers)=>{%>
+          <tr> <!--ini harus didalam forEachnya-->
+          <td><%=dataTeachers.id%></td>
+          <td><%=dataTeachers.first_name%></td>
+          <td><%=dataTeachers.last_name%></td>
+          <td><%=dataTeachers.email%></td>
+          <%if(!dataTeachers.id_subject){%>
+            <td><p style="color:red;">unassigned</p></td>
+          <%}else{%>
+            <td><%=dataTeachers.Subject.subject_name%></td>
+          <%}%>
+
+          <td><a href="/teacher/edit/<%= dataTeachers.id %>">Edit</a></td>
+          <td><a href="/teacher/delete/<%= dataTeachers.id %>">Delete</a></td>
+          </tr>
+        <%})%>
+
+    </tbody>
+  </table>
+</div>
+<div style="text-align:center;margin-top:50px"class="container">
+  <!-- <form class="form-horizontal" action="/contacts" method="post">
+    <input type="text" name="name" class="form-control" placeholder="Nama"><br>
+    <input type="text" name="company" class="form-control" placeholder="Company"><br>
+    <input type="text" name="telp_number" class="form-control" placeholder="No Telepon"><br>
+    <input type="text" name="email" class="form-control" placeholder="Email">
+    <br><button type="submit" name="submit">SIMPAN</button>
+  </form> -->
+</div>
+</body>
+</html>

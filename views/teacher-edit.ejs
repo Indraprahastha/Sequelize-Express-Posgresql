@@ -1,0 +1,31 @@
+<html>
+  <%- include partial/head %>
+  <body>
+    <%- include partial/menu %>
+<!--Menu ======================================================================== Diatas-->
+
+<div style="text-align:center;margin-top:100px"class="container">
+
+  <form class="form-horizontal" action="/teacher/edit/<%= data[0].id %>" method="post">
+
+    <input type="text" name="first_name" class="form-control" value="<%= data[0].first_name %>"><br>
+    <input type="text" name="last_name" class="form-control" value="<%= data[0].last_name %>"><br>
+    <input type="text" name="email" class="form-control" value="<%= data[0].email %>"><br>
+
+    <select class="form-control" name="id_subject">
+      <%dataSubject.forEach((dataSubject)=>{%>
+        <%if(data[0].id_subject == dataSubject.id){%>
+          <option value="<%=dataSubject.id%>" selected><%= dataSubject.subject_name %></option>
+        <%}else{%>
+          <option value="<%=dataSubject.id%>"><%= dataSubject.subject_name %></option>
+        <%}%>
+      <%})%>
+    </select>
+
+
+
+    <br><button type="submit" name="submit">SIMPAN</button>
+  </form>
+</div>
+</body>
+</html>

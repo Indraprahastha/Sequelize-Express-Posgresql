@@ -1,0 +1,37 @@
+<html>
+  <%- include partial/head %>
+  <body>
+    <%- include partial/menu %>
+<!--Menu ======================================================================== Diatas-->
+<div style="text-align:center;margin-top:50px"class="container">
+  <h1>Give Score</h1>
+      <form action="/subject/<%= dtStudent.id %>/<%= dtSubject.id %>/givescore" method="post">
+        <br>
+        <input class="form-control" type="text" name="StudentId" value="<%= dtStudent.id %>">
+        <br>
+        <input class="form-control" type="text" name="first_name" value="<%= dtStudent.first_name %>">
+        <br>
+        <input class="form-control" type="text" name="last_name" value="<%= dtStudent.last_name %>">
+        <br>
+        <input class="form-control" type="text" name="subject_name" value="<%= dtSubject.subject_name %>">
+        <br>
+        <input class="form-control" type="text" name="score" placeholder="Input Score">
+        <br>
+        <button type="submit" name="submit">Save</button>
+
+  </form>
+</div>
+
+
+
+<div style="text-align:center;margin-top:50px"class="container">
+  <!-- <form class="form-horizontal" action="/contacts" method="post">
+    <input type="text" name="name" class="form-control" placeholder="Nama"><br>
+    <input type="text" name="company" class="form-control" placeholder="Company"><br>
+    <input type="text" name="telp_number" class="form-control" placeholder="No Telepon"><br>
+    <input type="text" name="email" class="form-control" placeholder="Email">
+    <br><button type="submit" name="submit">SIMPAN</button>
+  </form> -->
+</div>
+</body>
+</html>
